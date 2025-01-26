@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}) 
 # Initialize Groq client
 client = Groq(
-    api_key='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'
+    api_key='Your_groq_api'
 )
 
 @app.route('/schemes', methods=['POST'])

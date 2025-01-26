@@ -13,8 +13,8 @@ CORS(app)  # This will allow all origins by default. You can configure it more s
 # Initialize Appwrite client
 client = Client()
 client.set_endpoint('https://cloud.appwrite.io/v1')
-client.set_project('67925af700164875e7f7')
-client.set_key('standard_52da4bb07ad11259bd11ff85d11c794551e18fd7a12aeefbc01f55f67622004a1de00392c8c45d5de296cec1896a399e38e4feeced9233a59b6b1293ce58dbc2048622f95f6dc64e8a3df5fcd26af131dffdd6219ba2dcc16b2b83962b50c5d81eb98c363f0f9dc7cb8eb25e5e8a4b65562cfb54cc53dffbe35cad1bb73b9c6b')
+client.set_project('project_id')
+client.set_key('appwrite_api')
 storage = Storage(client)
 database = Databases(client)
 
@@ -22,8 +22,8 @@ database = Databases(client)
 def push_data_to_appwrite(title, desc, name, contact, email, location, required_amt):
     try:
         response = database.create_document(
-            database_id='67933150002385c06665',
-            collection_id='6793315a001d1edc3831',
+            database_id='database_id',
+            collection_id='collection_id',
             document_id='unique()',  # Use 'unique()' to generate a unique document ID
             data={
                 'title': title,
@@ -64,7 +64,7 @@ def handle_push_data():
 def get_bucket_list():
     try:
         # Fetch the files in the bucket
-        files = storage.list_files(bucket_id="679321850022e361f6d0")
+        files = storage.list_files(bucket_id="bucket_id")
         
         # Extract only the "$id" from each file in the list
         file_ids = [{"$id": file["$id"]} for file in files["files"]]
@@ -81,8 +81,8 @@ def get_data():
     try:
         # Retrieve documents from the collection
         response = database.list_documents(
-            database_id='67933150002385c06665',
-            collection_id='6793315a001d1edc3831'
+            database_id='database_id',
+            collection_id='collection_id'
         )
         
         # Return the documents as JSON response

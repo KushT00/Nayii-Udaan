@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Client, Account } from "appwrite";
 
-const client = new Client().setProject("67925af700164875e7f7");
+const client = new Client().setProject("appwrite_projectid");
 const account = new Account(client);
 
 type UserContextType = {

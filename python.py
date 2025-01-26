@@ -6,7 +6,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}) 
-client = Groq(api_key='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')
+client = Groq(api_key='your_groq_api')
 
 # Website structure and navigation mapping
 WEBSITE_PROMPT = """
